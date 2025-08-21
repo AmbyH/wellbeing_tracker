@@ -61,8 +61,6 @@ flutter:
     - assets/wellbeing_tracker/burned.png
     - assets/wellbeing_tracker/bottle.png
     - assets/wellbeing_tracker/glass.png
-    - assets/hotel/
-    - assets/introduction_animation/
 
   fonts:
     - family: WorkSans
