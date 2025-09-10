@@ -1,6 +1,6 @@
 import 'package:wellbeing_tracker/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'model/homelist.dart';
+import 'model/home_list.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

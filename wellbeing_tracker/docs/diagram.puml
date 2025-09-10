@@ -1,0 +1,695 @@
+@startuml
+set namespaceSeparator ::
+
+class "wellbeing_tracker::firebase_options.dart::DefaultFirebaseOptions" {
+  {static} +FirebaseOptions ios
+  {static} +FirebaseOptions currentPlatform
+}
+
+"wellbeing_tracker::firebase_options.dart::DefaultFirebaseOptions" o-- "firebase_core_platform_interface::firebase_core_platform_interface.dart::FirebaseOptions"
+
+class "wellbeing_tracker::invite_friend_screen.dart::InviteFriend" {
+  +InviteFriendState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::invite_friend_screen.dart::InviteFriend"
+
+class "wellbeing_tracker::invite_friend_screen.dart::InviteFriendState" {
+  +void initState()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::invite_friend_screen.dart::InviteFriendState"
+
+class "wellbeing_tracker::wellbeing_tracker::measurement_entry_page.dart::MeasurementEntryPage" {
+  +MeasurementEntryPageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::measurement_entry_page.dart::MeasurementEntryPage"
+
+class "wellbeing_tracker::wellbeing_tracker::measurement_entry_page.dart::MeasurementEntryPageState" {
+  -GlobalKey<FormState> _formKey
+  -TextEditingController _weightController
+  -TextEditingController _heightController
+  -TextEditingController _bodyFatController
+  +void dispose()
+  -dynamic _save()
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::measurement_entry_page.dart::MeasurementEntryPageState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"wellbeing_tracker::wellbeing_tracker::measurement_entry_page.dart::MeasurementEntryPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::measurement_entry_page.dart::MeasurementEntryPageState"
+
+class "wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::NewEntryActionPage" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::NewEntryActionPage"
+
+class "wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::_QuadrantButton" {
+  +IconData icon
+  +String label
+  +void Function() onTap
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::_QuadrantButton" o-- "flutter::src::widgets::icon_data.dart::IconData"
+"wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::_QuadrantButton" o-- "dart::ui::void Function()"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::_QuadrantButton"
+
+class "wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::SquircleBorder" {
+  +BorderRadius borderRadius
+  +BorderSide side
+  +double opacity
+  +EdgeInsetsGeometry dimensions
+  +ShapeBorder scale()
+  +Path getOuterPath()
+  +Path getInnerPath()
+  +void paint()
+  +ShapeBorder lerpFrom()
+  +ShapeBorder lerpTo()
+}
+
+"wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::SquircleBorder" o-- "flutter::src::painting::border_radius.dart::BorderRadius"
+"wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::SquircleBorder" o-- "flutter::src::painting::borders.dart::BorderSide"
+"wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::SquircleBorder" o-- "flutter::src::painting::edge_insets.dart::EdgeInsetsGeometry"
+"flutter::src::painting::borders.dart::ShapeBorder" <|-- "wellbeing_tracker::wellbeing_tracker::new_entry_action_page.dart::SquircleBorder"
+
+class "wellbeing_tracker::wellbeing_tracker::diet_summary_screen.dart::DietSummaryScreen" {
+  +AnimationController? animationController
+  +DietSummaryScreenState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::diet_summary_screen.dart::DietSummaryScreen" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::diet_summary_screen.dart::DietSummaryScreen"
+
+class "wellbeing_tracker::wellbeing_tracker::diet_summary_screen.dart::DietSummaryScreenState" {
+  +List<MapEntry<DateTime, UserDailyData>> history
+  -List<AnimationController> _controllers
+  -List<Animation<double>> _animations
+  +void initState()
+  -dynamic _loadHistory()
+  +void dispose()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::diet_summary_screen.dart::DietSummaryScreenState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::diet_summary_screen.dart::DietSummaryScreenState"
+
+class "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarView" {
+  +dynamic Function(int)? changeIndex
+  +dynamic Function()? addClick
+  +List<TabIconData>? tabIconsList
+  +BottomBarViewState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarView" o-- "null::dynamic Function(int)"
+"wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarView" o-- "null::dynamic Function()"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarView"
+
+class "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarViewState" {
+  +AnimationController? animationController
+  +void initState()
+  +Widget build()
+  +void setRemoveAllSelection()
+}
+
+"wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarViewState" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarViewState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::BottomBarViewState"
+
+class "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIcons" {
+  +TabIconData? tabIconData
+  +dynamic Function()? removeAllSelect
+  +TabIconsState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIcons" o-- "wellbeing_tracker::wellbeing_tracker::models::tab_icon_data.dart::TabIconData"
+"wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIcons" o-- "null::dynamic Function()"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIcons"
+
+class "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIconsState" {
+  +void initState()
+  +void setAnimation()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIconsState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabIconsState"
+
+class "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabClipper" {
+  +double radius
+  +Path getClip()
+  +bool shouldReclip()
+  +double degreeToRadians()
+}
+
+"flutter::src::rendering::proxy_box.dart::CustomClipper" <|-- "wellbeing_tracker::wellbeing_tracker::bottom_navigation_view::bottom_bar_view.dart::TabClipper"
+
+class "wellbeing_tracker::wellbeing_tracker::food_entry_page.dart::FoodEntryPage" {
+  +FoodEntryPageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::food_entry_page.dart::FoodEntryPage"
+
+class "wellbeing_tracker::wellbeing_tracker::food_entry_page.dart::FoodEntryPageState" {
+  -GlobalKey<FormState> _formKey
+  -TextEditingController _caloriesController
+  -TextEditingController _carbsController
+  -TextEditingController _proteinController
+  -TextEditingController _fatController
+  -dynamic _save()
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::food_entry_page.dart::FoodEntryPageState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"wellbeing_tracker::wellbeing_tracker::food_entry_page.dart::FoodEntryPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::food_entry_page.dart::FoodEntryPageState"
+
+class "wellbeing_tracker::wellbeing_tracker::exercise_entry_page.dart::ExerciseEntryPage" {
+  +ExerciseEntryPageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::exercise_entry_page.dart::ExerciseEntryPage"
+
+class "wellbeing_tracker::wellbeing_tracker::exercise_entry_page.dart::ExerciseEntryPageState" {
+  -GlobalKey<FormState> _formKey
+  -TextEditingController _minutesController
+  -TextEditingController _notesController
+  -TextEditingController _otherCaloriesController
+  -String? _selectedExercise
+  -List<String> _exerciseOptions
+  +bool isOtherSelected
+  -double _caloriesBurned()
+  -dynamic _save()
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::exercise_entry_page.dart::ExerciseEntryPageState" o-- "flutter::src::widgets::framework.dart::GlobalKey<FormState>"
+"wellbeing_tracker::wellbeing_tracker::exercise_entry_page.dart::ExerciseEntryPageState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::exercise_entry_page.dart::ExerciseEntryPageState"
+
+class "wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreen" {
+  +AnimationController? animationController
+  +TrainingScreenState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreen" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreen"
+
+class "wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreenState" {
+  +Animation<double>? topBarAnimation
+  +List<Widget> listViews
+  +ScrollController scrollController
+  +double topBarOpacity
+  +void initState()
+  +void addAllListData()
+  +dynamic getData()
+  +Widget build()
+  +Widget getMainListViewUI()
+  +Widget getAppBarUI()
+}
+
+"wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreenState" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreenState" o-- "flutter::src::widgets::scroll_controller.dart::ScrollController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreenState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::training::training_screen.dart::TrainingScreenState"
+
+class "wellbeing_tracker::wellbeing_tracker::fitness_app_theme.dart::FitnessAppTheme" {
+  {static} +Color nearlyWhite
+  {static} +Color white
+  {static} +Color background
+  {static} +Color nearlyDarkBlue
+  {static} +Color nearlyBlue
+  {static} +Color nearlyBlack
+  {static} +Color grey
+  {static} +Color darkGrey
+  {static} +Color darkText
+  {static} +Color darkerText
+  {static} +Color lightText
+  {static} +Color deactivatedText
+  {static} +Color dismissibleBackground
+  {static} +Color spacer
+  {static} +String fontName
+  {static} +TextTheme textTheme
+  {static} +TextStyle display1
+  {static} +TextStyle headline
+  {static} +TextStyle title
+  {static} +TextStyle subtitle
+  {static} +TextStyle body2
+  {static} +TextStyle body1
+  {static} +TextStyle caption
+}
+
+"wellbeing_tracker::wellbeing_tracker::fitness_app_theme.dart::FitnessAppTheme" o-- "dart::ui::Color"
+"wellbeing_tracker::wellbeing_tracker::fitness_app_theme.dart::FitnessAppTheme" o-- "flutter::src::material::text_theme.dart::TextTheme"
+"wellbeing_tracker::wellbeing_tracker::fitness_app_theme.dart::FitnessAppTheme" o-- "flutter::src::painting::text_style.dart::TextStyle"
+
+class "wellbeing_tracker::wellbeing_tracker::models::tab_icon_data.dart::TabIconData" {
+  +String imagePath
+  +String selectedImagePath
+  +bool isSelected
+  +int index
+  +AnimationController? animationController
+  {static} +List<TabIconData> tabIconsList
+}
+
+"wellbeing_tracker::wellbeing_tracker::models::tab_icon_data.dart::TabIconData" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+
+class "wellbeing_tracker::wellbeing_tracker::models::user_daily_data.dart::UserDailyData" {
+  +int caloriesEaten
+  +int caloriesBurned
+  +int caloriesRemaining
+  +int carbs
+  +int protein
+  +int fat
+  +double waterMl
+  +double weightKg
+  +double heightCm
+  +double bmi
+  +double bodyFatPercent
+  +DateTime lastDrinkTime
+  +DateTime lastMeasurementTime
+  +Map<String, dynamic> toMap()
+  {static} +UserDailyData fromMap()
+  +dynamic save()
+  {static} +dynamic load()
+  {static} -String _keyForDate()
+}
+
+class "wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreen" {
+  +AnimationController? animationController
+  +MyDiaryScreenState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreen" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreen"
+
+class "wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreenState" {
+  +Animation<double>? topBarAnimation
+  +List<Widget> listViews
+  +ScrollController scrollController
+  +double topBarOpacity
+  +DateTime selectedDate
+  +void initState()
+  -void _loadForDate()
+  +void addAllListData()
+  +dynamic getData()
+  +dynamic refreshData()
+  -String _formatDate()
+  -String _monthName()
+  +Widget build()
+  +Widget getMainListViewUI()
+  +Widget getAppBarUI()
+}
+
+"wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreenState" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreenState" o-- "flutter::src::widgets::scroll_controller.dart::ScrollController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreenState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::my_diary::my_diary_screen.dart::MyDiaryScreenState"
+
+class "wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterView" {
+  +AnimationController? mainScreenAnimationController
+  +Animation<double>? mainScreenAnimation
+  +DateTime? date
+  +WaterViewState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterView"
+
+class "wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterViewState" {
+  +double waterMl
+  +double dailyGoalMl
+  +DateTime lastDrinkTime
+  +void initState()
+  +void didUpdateWidget()
+  -dynamic _loadWater()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterViewState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::my_diary::water_view.dart::WaterViewState"
+
+class "wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreen" {
+  +FitnessAppHomeScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreen"
+
+class "wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreenState" {
+  +AnimationController? animationController
+  +List<TabIconData> tabIconsList
+  +Widget tabBody
+  +void initState()
+  +void dispose()
+  +Widget build()
+  +dynamic getData()
+}
+
+"wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreenState" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreenState" o-- "flutter::src::widgets::framework.dart::Widget"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreenState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::fitness_app_home_screen.dart::FitnessAppHomeScreenState"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::running_view.dart::RunningView" {
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::running_view.dart::RunningView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::running_view.dart::RunningView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::running_view.dart::RunningView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::glass_view.dart::GlassView" {
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::glass_view.dart::GlassView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::glass_view.dart::GlassView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::glass_view.dart::GlassView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::body_measurement.dart::BodyMeasurementView" {
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +DateTime? date
+  +BodyMeasurementViewState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::body_measurement.dart::BodyMeasurementView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::body_measurement.dart::BodyMeasurementView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::body_measurement.dart::BodyMeasurementView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::body_measurement.dart::BodyMeasurementViewState" {
+  +double weightKg
+  +double heightCm
+  +double bmi
+  +double bodyFatPercent
+  +DateTime lastMeasurementTime
+  +void initState()
+  +void didUpdateWidget()
+  -dynamic _loadMeasurement()
+  +Widget build()
+  -String _bmiCategory()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::body_measurement.dart::BodyMeasurementViewState"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::title_view.dart::TitleView" {
+  +String titleTxt
+  +String subTxt
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::title_view.dart::TitleView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::title_view.dart::TitleView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::title_view.dart::TitleView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::MediterranesnDietView" {
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +DateTime? date
+  +MediterranesnDietViewState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::MediterranesnDietView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::MediterranesnDietView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::MediterranesnDietView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::MediterranesnDietViewState" {
+  +int eatenCalories
+  +int burnedCalories
+  +int remainingCalories
+  +int dailyGoal
+  +int carbs
+  +int protein
+  +int fat
+  {static} +int maxCarbs
+  {static} +int maxProtein
+  {static} +int maxFat
+  +double totalBurnedCalories
+  +double remainingPercent
+  +double carbsPercent
+  +double proteinPercent
+  +double fatPercent
+  +void initState()
+  +void didUpdateWidget()
+  -dynamic _loadSavedValues()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::MediterranesnDietViewState"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::CurvePainter" {
+  +double? angle
+  +List<Color>? colors
+  +void paint()
+  +bool shouldRepaint()
+  +double degreeToRadians()
+}
+
+"flutter::src::rendering::custom_paint.dart::CustomPainter" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::mediterranean_diet_view.dart::CurvePainter"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListView" {
+  +AnimationController? mainScreenAnimationController
+  +Animation<double>? mainScreenAnimation
+  +AreaListViewState createState()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListViewState" {
+  +AnimationController? animationController
+  +List<String> areaListData
+  +void initState()
+  +void dispose()
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListViewState" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListViewState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaListViewState"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaView" {
+  +String? imagepath
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::area_list_view.dart::AreaView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveView" {
+  +double percentageValue
+  +WaveViewState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveView"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveViewState" {
+  +AnimationController? animationController
+  +AnimationController? waveAnimationController
+  +Offset bottleOffset1
+  +List<Offset> animList1
+  +Offset bottleOffset2
+  +List<Offset> animList2
+  +void initState()
+  +void dispose()
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveViewState" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveViewState" o-- "dart::ui::Offset"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveViewState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveViewState"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveClipper" {
+  +double animation
+  +List<Offset> waveList1
+  +Path getClip()
+  +bool shouldReclip()
+}
+
+"flutter::src::rendering::proxy_box.dart::CustomClipper" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::wave_view.dart::WaveClipper"
+
+class "wellbeing_tracker::wellbeing_tracker::ui_view::workout_view.dart::WorkoutView" {
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +Widget build()
+}
+
+"wellbeing_tracker::wellbeing_tracker::ui_view::workout_view.dart::WorkoutView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::wellbeing_tracker::ui_view::workout_view.dart::WorkoutView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::wellbeing_tracker::ui_view::workout_view.dart::WorkoutView"
+
+class "wellbeing_tracker::wellbeing_tracker::water_entry_page.dart::WaterEntryPage" {
+  +WaterEntryPageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::wellbeing_tracker::water_entry_page.dart::WaterEntryPage"
+
+class "wellbeing_tracker::wellbeing_tracker::water_entry_page.dart::WaterEntryPageState" {
+  -double _water
+  -dynamic _save()
+  +WaterEntryPageState createState()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::wellbeing_tracker::water_entry_page.dart::WaterEntryPageState"
+
+class "wellbeing_tracker::main.dart::MyApp" {
+  +State<MyApp> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::main.dart::MyApp"
+
+class "wellbeing_tracker::main.dart::_MyAppState" {
+  -bool _showLogin
+  -bool _loading
+  +void initState()
+  -dynamic _checkFirstLaunch()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::main.dart::_MyAppState"
+
+class "wellbeing_tracker::main.dart::HexColor" {
+  {static} -int _getColorFromHex()
+}
+
+"dart::ui::Color" <|-- "wellbeing_tracker::main.dart::HexColor"
+
+class "wellbeing_tracker::app_theme.dart::AppTheme" {
+  {static} +Color notWhite
+  {static} +Color nearlyWhite
+  {static} +Color white
+  {static} +Color nearlyBlack
+  {static} +Color grey
+  {static} +Color darkGrey
+  {static} +Color darkText
+  {static} +Color darkerText
+  {static} +Color lightText
+  {static} +Color deactivatedText
+  {static} +Color dismissibleBackground
+  {static} +Color chipBackground
+  {static} +Color spacer
+  {static} +String fontName
+  {static} +TextTheme textTheme
+  {static} +TextStyle display1
+  {static} +TextStyle headline
+  {static} +TextStyle title
+  {static} +TextStyle subtitle
+  {static} +TextStyle body2
+  {static} +TextStyle body1
+  {static} +TextStyle caption
+}
+
+"wellbeing_tracker::app_theme.dart::AppTheme" o-- "dart::ui::Color"
+"wellbeing_tracker::app_theme.dart::AppTheme" o-- "flutter::src::material::text_theme.dart::TextTheme"
+"wellbeing_tracker::app_theme.dart::AppTheme" o-- "flutter::src::painting::text_style.dart::TextStyle"
+
+class "wellbeing_tracker::login_screen.dart::LoginScreen" {
+  +State<LoginScreen> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::login_screen.dart::LoginScreen"
+
+class "wellbeing_tracker::login_screen.dart::_LoginScreenState" {
+  -TextEditingController _emailController
+  -TextEditingController _passwordController
+  -bool _isLoading
+  -String? _error
+  -dynamic _login()
+  -dynamic _signUp()
+  +Widget build()
+}
+
+"wellbeing_tracker::login_screen.dart::_LoginScreenState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::login_screen.dart::_LoginScreenState"
+
+class "wellbeing_tracker::model::home_list.dart::HomeList" {
+  +Widget? navigateScreen
+  +String imagePath
+  {static} +List<HomeList> homeList
+}
+
+"wellbeing_tracker::model::home_list.dart::HomeList" o-- "flutter::src::widgets::framework.dart::Widget"
+
+class "wellbeing_tracker::help_screen.dart::HelpScreen" {
+  +HelpScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::help_screen.dart::HelpScreen"
+
+class "wellbeing_tracker::help_screen.dart::HelpScreenState" {
+  +void initState()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::help_screen.dart::HelpScreenState"
+
+class "wellbeing_tracker::home_screen.dart::MyHomePage" {
+  +MyHomePageState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::home_screen.dart::MyHomePage"
+
+class "wellbeing_tracker::home_screen.dart::MyHomePageState" {
+  +List<HomeList> homeList
+  +AnimationController? animationController
+  +bool multiple
+  +void initState()
+  +dynamic getData()
+  +void dispose()
+  +Widget build()
+  +Widget appBar()
+}
+
+"wellbeing_tracker::home_screen.dart::MyHomePageState" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::home_screen.dart::MyHomePageState"
+"flutter::src::widgets::ticker_provider.dart::TickerProviderStateMixin" <|-- "wellbeing_tracker::home_screen.dart::MyHomePageState"
+
+class "wellbeing_tracker::home_screen.dart::HomeListView" {
+  +HomeList? listData
+  +void Function()? callBack
+  +AnimationController? animationController
+  +Animation<double>? animation
+  +Widget build()
+}
+
+"wellbeing_tracker::home_screen.dart::HomeListView" o-- "wellbeing_tracker::model::home_list.dart::HomeList"
+"wellbeing_tracker::home_screen.dart::HomeListView" o-- "dart::ui::void Function()"
+"wellbeing_tracker::home_screen.dart::HomeListView" o-- "flutter::src::animation::animation_controller.dart::AnimationController"
+"wellbeing_tracker::home_screen.dart::HomeListView" o-- "flutter::src::animation::animation.dart::Animation<double>"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "wellbeing_tracker::home_screen.dart::HomeListView"
+
+class "wellbeing_tracker::feedback_screen.dart::FeedbackScreen" {
+  +FeedbackScreenState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "wellbeing_tracker::feedback_screen.dart::FeedbackScreen"
+
+class "wellbeing_tracker::feedback_screen.dart::FeedbackScreenState" {
+  -TextEditingController _controller
+  +void initState()
+  -void _sendFeedback()
+  +Widget build()
+  -Widget _buildComposer()
+}
+
+"wellbeing_tracker::feedback_screen.dart::FeedbackScreenState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "wellbeing_tracker::feedback_screen.dart::FeedbackScreenState"
+
+
+@enduml

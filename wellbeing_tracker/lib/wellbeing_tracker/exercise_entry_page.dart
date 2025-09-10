@@ -77,7 +77,7 @@ class ExerciseEntryPageState extends State<ExerciseEntryPage> {
             children: [
               DropdownButtonFormField<String>(
                 decoration: InputDecoration(labelText: 'Exercise'),
-                value: _selectedExercise,
+                initialValue: _selectedExercise,
                 items: _exerciseOptions
                     .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                     .toList(),

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>368109510941-tr1clte916vrr80a5vsgfgbad8rfnv4c.apps.googleusercontent.com</string>
+	<string>368109510941-skp4bapsjplh1bd2cqhuvr0hvdbeg1qr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.368109510941-tr1clte916vrr80a5vsgfgbad8rfnv4c</string>
+	<string>com.googleusercontent.apps.368109510941-skp4bapsjplh1bd2cqhuvr0hvdbeg1qr</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDAKsP0fKO7mr4kndsG6c2uEMJ_OTGOi8c</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.bestFlutterUiTemplates.WellbeingTrackerWidget</string>
+	<string>com.example.wellbeing-tracker</string>
 	<key>PROJECT_ID</key>
 	<string>wellbeing-tracker-cf7f9</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:368109510941:ios:706c4170112b1b056681f4</string>
+	<string>1:368109510941:ios:8bf23a443c97f7236681f4</string>
 </dict>
 </plist>

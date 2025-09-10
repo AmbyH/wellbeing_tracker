@@ -12,14 +12,14 @@ class WaterEntryPage extends StatefulWidget {
 class WaterEntryPageState extends State<WaterEntryPage> {
   double _water = 10.0; //min value
 
-  Future<void> _save() async {
+  Future<void> _save() async { //async method declaration
     DateTime today = DateTime.now();
     UserDailyData data = await UserDailyData.load(date: today);
     data.waterMl += _water; 
     data.lastDrinkTime = DateTime.now();
     await data.save(date: today);
-  if (!mounted) return;
-  Navigator.pop(context);
+  if (!mounted) return; //safety check
+  Navigator.pop(context); //navigate back
   }
   WaterEntryPageState createState() => WaterEntryPageState();
 
